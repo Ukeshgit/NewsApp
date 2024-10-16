@@ -1,0 +1,70 @@
+name: news_app
+description: "A new Flutter project."
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  cupertino_icons: ^1.0.8
+  get: ^4.6.6
+  http: ^1.2.2
+  flutter_screenutil: ^5.9.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.14.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icon.png"
+ 
+  
+  flutter_lints: ^4.0.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/fonts/
+    - assets/images/
+    - assets/icons/
+  fonts:
+    - family: interSemiBold
+      fonts:
+        - asset: assets/fonts/Inter_24pt-SemiBold.ttf
+
+    - family: interRegular
+      fonts:
+        - asset: assets/fonts/Inter_28pt-Regular.ttf
+
+    - family: interMedium
+      fonts:
+        - asset: assets/fonts/Inter_28pt-Medium.ttf
+
+    - family: jbBold
+      fonts:
+        - asset: assets/fonts/jetBrainsMono/JetBrainsMono-Bold.ttf
+
+    - family: jbLight
+      fonts:
+        - asset: assets/fonts/jetBrainsMono/JetBrainsMono-Light.ttf
+
+    - family: jbMedium
+      fonts:
+        - asset: assets/fonts/jetBrainsMono/JetBrainsMono-Medium.ttf
+
+    - family: jbRegular
+      fonts:
+        - asset: assets/fonts/jetBrainsMono/JetBrainsMono-Regular.ttf
+
+
+ 
