@@ -3,7 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:news_app/features/home/controller/bottom_navigation_controller.dart';
 import 'package:news_app/features/home/controller/home_page_controller.dart';
+import 'package:news_app/features/home/view/Demopage.dart';
+import 'package:news_app/features/home/view/demonews.dart';
 import 'package:news_app/features/home/view/homepage.dart';
+import 'package:news_app/features/home/view/widgets/loading_container.dart';
 import 'package:news_app/utils/controller/theme_controller.dart';
 import 'package:news_app/utils/theme.dart';
 
@@ -32,7 +35,8 @@ class Myapp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
         );
       }),
-      child: HomePageController(),
+      // child: HomePageController(),
+      child: Homepage(),
     );
   }
 }

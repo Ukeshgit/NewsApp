@@ -6,6 +6,8 @@ import 'package:news_app/common/widgets/newstile.dart';
 import 'package:news_app/features/home/controller/bottom_navigation_controller.dart';
 import 'package:news_app/features/home/controller/news_for_you_controller.dart';
 import 'package:news_app/features/home/controller/trending_news_controller.dart';
+import 'package:news_app/features/home/view/Demopage.dart';
+import 'package:news_app/features/home/view/demonews.dart';
 import 'package:news_app/features/home/view/news_details.dart';
 import 'package:news_app/utils/colors.dart';
 import 'package:news_app/utils/controller/theme_controller.dart';
@@ -69,10 +71,9 @@ class Homepage extends StatelessWidget {
                 SizedBox(height: 20.h),
                 Obx(() {
                   if (trendingNewsController.isLoading.value) {
-                    return Center(
-                        child: CircularProgressIndicator(
-                      color: Appcolors.darkFontColor,
-                    ));
+                    return Row(
+                      children: [Demopage(), Expanded(child: Demopage())],
+                    );
                   }
 
                   return SizedBox(
@@ -128,10 +129,8 @@ class Homepage extends StatelessWidget {
                 ),
                 Obx(() {
                   if (newscontroller.isLoading.value) {
-                    return Center(
-                      child: CircularProgressIndicator(
-                        color: Appcolors.darkFontColor,
-                      ),
+                    return Column(
+                      children: [Demonews(), Demonews()],
                     );
                   }
                   return ListView.builder(
