@@ -1,10 +1,12 @@
 import 'dart:convert';
 
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:news_app/features/home/model/news_for_you_model.dart';
 
 class NewsForYouController extends GetxController {
+  FlutterTts flutterTts = FlutterTts();
   RxList<Articles> newsdetails = <Articles>[].obs;
   RxList<Articles> newsdetails5 = <Articles>[].obs;
   RxBool isLoading = false.obs;
@@ -43,5 +45,12 @@ class NewsForYouController extends GetxController {
       isLoading.value = false;
       print("Exception occured:${e}");
     }
+  }
+
+  Future<void> speak(String text) async {
+    await flutterTts.setLanguage("en-US");
+    await flutterTts.setPitch(1);
+    await flutterTts.setSpeechRate(0.8);
+    await flutterTts.speak(text);
   }
 }

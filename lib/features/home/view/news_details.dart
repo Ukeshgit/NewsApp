@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
+import 'package:news_app/features/home/controller/news_for_you_controller.dart';
 import 'package:news_app/features/home/model/trending_news_model.dart';
+import 'package:news_app/features/home/view/pausecontroller.dart';
 import 'package:news_app/utils/colors.dart';
 
 class NewsDetails extends StatelessWidget {
@@ -10,6 +13,8 @@ class NewsDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    NewsForYouController newsForYouController = Get.put(NewsForYouController());
+    Pausecontroller pausecontroller = Get.put(Pausecontroller());
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -88,6 +93,53 @@ class NewsDetails extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Container(
+                    height: 100.h,
+                    decoration: BoxDecoration(
+                        color: Appcolors.darkDivColor,
+                        borderRadius: BorderRadius.circular(12.sp)),
+                    child: Obx(
+                      () => Row(
+                        children: [
+                          IconButton(
+                              onPressed: () {
+                                pausecontroller.onclick();
+                                if (!pausecontroller.isPlay.value)
+                                  newsForYouController.speak(news.description!);
+                              },
+                              icon: pausecontroller.isPlay.value
+                                  ? Icon(
+                                      Icons.play_arrow_rounded,
+                                      color: Appcolors.darkFontColor,
+                                      size: 30.sp,
+                                    )
+                                  : Icon(
+                                      Icons.stop,
+                                      color: Appcolors.darkFontColor,
+                                      size: 30.sp,
+                                    )),
+                          Expanded(
+                            child: SizedBox(
+                              width: 300.w,
+                              height: 80,
+                              child: ColorFiltered(
+                                colorFilter: ColorFilter.mode(
+                                    Appcolors.darkFontColor,
+                                    BlendMode.srcIn), // Change to desired color
+                                child: Lottie.network(
+                                    "https://lottie.host/e69b1924-6187-4424-8b65-3236c38a4b0a/cTCufdLJIt.json",
+                                    animate: !pausecontroller.isPlay.value,
+                                    fit: BoxFit.contain),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                   SizedBox(
                     height: 10.h,
